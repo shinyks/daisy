@@ -4,6 +4,8 @@
   "description": "javascript util",
   "author": "shinyks",
   "license": "ISC",
+  "homepage": "https://github.com/shinyks/daisy",
+  "repository": "https://github.com/shinyks/daisy",
   "main": "build/index.js",
   "types": "types/index.d.ts",
   "scripts": {
