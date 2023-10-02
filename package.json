@@ -6,6 +6,7 @@
   "license": "ISC",
   "homepage": "https://github.com/shinyks/daisy",
   "repository": "https://github.com/shinyks/daisy",
+  "keywords": ["javascript", "util"],
   "main": "build/index.js",
   "types": "types/index.d.ts",
   "scripts": {
