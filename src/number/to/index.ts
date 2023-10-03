@@ -12,7 +12,7 @@ export const string = (value: number): string => `${value}`;
  * @param value Value to change
  * @returns Converted string
  */
-export const pxString = (value: number | string): string => {
+export const pxString = (value: any): string => {
   if (is.pxString(value)) {
     return value as string;
   }

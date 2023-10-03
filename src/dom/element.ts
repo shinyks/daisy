@@ -1,4 +1,4 @@
-import { Point, Size, number, string } from "..";
+import { Point, Size, string } from "..";
 
 export const get = (query: string, parentElement: HTMLElement): HTMLElement | null => {
   return (parentElement || document).querySelector(query);
@@ -131,47 +131,6 @@ export const addStyle = (value: string): void => {
 
   setHtml(styleElement, value);
   append(styleElement, document.head);
-};
-
-export const getCssSize = (element: HTMLElement): Size => {
-  return new Size(string.to.int(element.style.width), string.to.int(element.style.height));
-};
-
-export const setCssSize = (element: HTMLElement, width?: number | null, height?: number | null): void => {
-  element.style.width = (width === undefined || width === null) ? '' : number.to.pxString(width);
-  element.style.height = (height === undefined || height === null) ? '' : number.to.pxString(height);
-};
-
-export const getCssPoint = (element: HTMLElement): Point => {
-  return new Point(string.to.int(element.style.left), string.to.int(element.style.top));
-};
-
-export const setCssPoint = (element: HTMLElement, x?: number | null, y?: number | null): void => {
-  element.style.left = (x === undefined || x === null) ? '' : number.to.pxString(x);
-  element.style.top = (y === undefined || y === null) ? '' : number.to.pxString(y);
-};
-
-export const setCssScale = (element: HTMLElement, zoomRate: number): void => {
-  const scale = `scale(${zoomRate}, ${zoomRate})`;
-  const style = element.style as any;
-
-  style.webkitTransform = scale;
-  style.msTransform = scale;
-  style.transform = scale;
-};
-
-export const setAbsolute = (element: HTMLElement, top?: number | null, right?: number | null, bottom?: number | null, left?: number | null): void => {
-  element.style.position = 'absolute';
-  element.style.top = (top === undefined || top === null) ? '' : number.to.pxString(top);
-  element.style.right = (right === undefined || right === null) ? '' : number.to.pxString(right);
-  element.style.bottom = (bottom === undefined || bottom === null) ? '' : number.to.pxString(bottom);
-  element.style.left = (left === undefined || left === null) ? '' : number.to.pxString(left);
-};
-
-export const setCss = (element: HTMLElement, key: string, value: string): void => {
-  const style = element.style as any;
-
-  style[key] = value;
 };
 
 export const getComputedPoint = (element: HTMLElement): Point => {
