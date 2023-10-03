@@ -1,5 +1,3 @@
-import { Point, Size, string } from "..";
-
 export const get = (query: string, parentElement: HTMLElement): HTMLElement | null => {
   return (parentElement || document).querySelector(query);
 };
@@ -131,32 +129,4 @@ export const addStyle = (value: string): void => {
 
   setHtml(styleElement, value);
   append(styleElement, document.head);
-};
-
-export const getComputedPoint = (element: HTMLElement): Point => {
-  const computedStyle = window.getComputedStyle(element);
-  const x = string.to.float(computedStyle.left);
-  const y = string.to.float(computedStyle.top);
-
-  return new Point(x, y);
-};
-
-export const getComputedSize = (element: HTMLElement): Size => {
-  const computedStyle = window.getComputedStyle(element);
-  const width = string.to.float(computedStyle.width);
-  const height = string.to.float(computedStyle.height);
-
-  return new Size(width, height);
-};
-
-export const getComputedStyle = (element: HTMLElement): CSSStyleDeclaration => {
-  return window.getComputedStyle(element);
-};
-
-export const getWindowSize = (): Size => {
-  const { documentElement, body } = document;
-  const width = documentElement.clientWidth || body.clientWidth;
-  const height = documentElement.clientHeight || body.clientHeight;
-
-  return new Size(width, height);
 };
