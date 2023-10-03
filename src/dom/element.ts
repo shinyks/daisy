@@ -62,56 +62,6 @@ export const setHtml = (element: HTMLElement, value: string): void => {
   element.innerHTML = value;
 };
 
-export const hasClass = (element: HTMLElement, name: string): boolean => {
-  return element.classList.contains(name);
-};
-
-export const hasOptionClass = (element: HTMLElement, name: string): boolean => {
-  return hasClass(element, `--${name}`);
-};
-
-export const addClass = (element: HTMLElement, name: string): void => {
-  element.classList.add(name);
-};
-
-export const addOptionClass = (element: HTMLElement, name: string): void => {
-  addClass(element ,`--${name}`);
-};
-
-export const removeClass = (element: HTMLElement, name: string): void => {
-  element.classList.remove(name);
-};
-
-export const removeOptionClass = (element: HTMLElement, name: string): void => {
-  removeClass(element ,`--${name}`);
-};
-
-export const setClass = (element: HTMLElement, name: string, value: boolean = true): void => {
-  if (value) {
-    addClass(element, name);
-  } else {
-    removeClass(element, name);
-  }
-};
-
-export const setOptionClass = (element: HTMLElement, name: string, value: boolean = true): void => {
-  setClass(element, `--${name}`, value);
-};
-
-export const removeAllClass = (element: HTMLElement, prefix: string = ''): void => {
-  for (let i = 0; i < element.classList.length; i++) {
-    const className = element.classList[i];
-
-    if (className.startsWith(prefix)) {
-      removeClass(element, className);
-    }
-  }
-};
-
-export const removeAllOptionClass = (element: HTMLElement): void => {
-  removeAllClass(element, '--');
-};
-
 export const addStyle = (value: string): void => {
   if (!value || value.length === 0) {
     return;
