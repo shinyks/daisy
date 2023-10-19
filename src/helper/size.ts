@@ -1,4 +1,4 @@
-import { is } from "..";
+import { number as isNumber } from "../is";
 
 export interface ISize {
   width: number;
@@ -29,25 +29,27 @@ export class Size {
   }
 
   get object(): ISize {
-    return this.size;
+    const { width, height } = this.size;
+
+    return { width, height };
   }
 
   constructor(width: number = 0, height: number = 0) {
-    if (is.number(width)) {
+    if (isNumber(width)) {
       this.width = width;
     }
 
-    if (is.number(height)) {
+    if (isNumber(height)) {
       this.height = height;
     }
   }
 
-  fromSize({ width, height }: Size): void {
+  setSize({ width, height }: Size): void {
     this.width = width;
     this.height = height;
   }
 
-  fromISize({ width, height }: ISize): void {
+  setISize({ width, height }: ISize): void {
     this.width = width;
     this.height = height;
   }
@@ -55,7 +57,7 @@ export class Size {
   clone(): Size {
     const newObject = Size.default;
 
-    newObject.fromISize(this.object);
+    newObject.setISize(this.object);
 
     return newObject;
   }

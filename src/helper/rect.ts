@@ -1,4 +1,5 @@
-import { IPoint, ISize, Point, Size } from "..";
+import { IPoint, Point } from "./point";
+import { ISize, Size } from "./size";
 
 export interface IRect extends IPoint, ISize {}
 
@@ -37,22 +38,26 @@ export class Rect {
   }
 
   constructor(x: number = 0, y: number = 0, width: number = 0, height: number = 0) {
-    this.point.fromIPoint({ x, y });
-    this.size.fromISize({ width, height });
+    this.point.setIPoint({ x, y });
+    this.size.setISize({ width, height });
   }
 
-  fromRect({ x, y, width, height }: Rect): void {
+  setRect({ x, y, width, height }: Rect): void {
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
   }
 
-  fromIRect({ x, y, width, height }: IRect): void {
+  setIRect({ x, y, width, height }: IRect): void {
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
+  }
+
+  getPoint(): Point {
+    return this.point.clone();
   }
 
   setPoint({ x, y }: Point): void {
@@ -60,14 +65,30 @@ export class Rect {
     this.y = y;
   }
 
+  getIPoint(): IPoint {
+    const { x, y } = this.point;
+
+    return { x, y };
+  }
+
   setIPoint({ x, y }: IPoint): void {
     this.x = x;
     this.y = y;
   }
 
+  getSize(): Size {
+    return this.size.clone();
+  }
+
   setSize({ width, height }: Size): void {
     this.width = width;
     this.height = height;
+  }
+
+  getISize(): ISize {
+    const { width, height } = this.size;
+
+    return { width, height };
   }
 
   setISize({ width, height }: ISize): void {
@@ -78,7 +99,7 @@ export class Rect {
   clone(): Rect {
     const newObject = Rect.default;
 
-    newObject.fromIRect(this.object);
+    newObject.setIRect(this.object);
 
     return newObject;
   }

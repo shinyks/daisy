@@ -1,4 +1,4 @@
-import { is } from "..";
+import { number as isNumber } from "../is";
 
 export interface IPoint {
   x: number;
@@ -29,25 +29,27 @@ export class Point {
   }
 
   get object(): IPoint {
-    return this.point;
+    const { x, y } = this.point;
+
+    return { x, y };
   }
 
   constructor(x: number = 0, y: number = 0) {
-    if (is.number(x)) {
+    if (isNumber(x)) {
       this.x = x;
     }
 
-    if (is.number(y)) {
+    if (isNumber(y)) {
       this.y = y;
     }
   }
 
-  fromPoint({ x, y }: Point): void {
+  setPoint({ x, y }: Point): void {
     this.x = x;
     this.y = y;
   }
 
-  fromIPoint({ x, y }: IPoint): void {
+  setIPoint({ x, y }: IPoint): void {
     this.x = x;
     this.y = y;
   }
@@ -55,7 +57,7 @@ export class Point {
   clone(): Point {
     const newObject = Point.default;
 
-    newObject.fromIPoint(this.object);
+    newObject.setIPoint(this.object);
 
     return newObject;
   }
