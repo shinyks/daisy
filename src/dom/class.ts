@@ -23,8 +23,8 @@ export const hasOptionClass = (element: HTMLElement, name: string): boolean => {
  * @param element Element to add a class
  * @param name Class name
  */
-export const addClass = (element: HTMLElement, name: string): void => {
-  element.classList.add(name);
+export const addClass = (element: HTMLElement, ...nameList: string[]): void => {
+  nameList.forEach((name) => element.classList.add(name));
 };
 
 /**
@@ -32,8 +32,8 @@ export const addClass = (element: HTMLElement, name: string): void => {
  * @param element Element to add a option class
  * @param name Option class name
  */
-export const addOptionClass = (element: HTMLElement, name: string): void => {
-  addClass(element ,`--${name}`);
+export const addOptionClass = (element: HTMLElement, ...nameList: string[]): void => {
+  nameList.forEach((name) => addClass(element ,`--${name}`));
 };
 
 /**
@@ -41,8 +41,8 @@ export const addOptionClass = (element: HTMLElement, name: string): void => {
  * @param element Element to remove a class
  * @param name Class name
  */
-export const removeClass = (element: HTMLElement, name: string): void => {
-  element.classList.remove(name);
+export const removeClass = (element: HTMLElement, ...nameList: string[]): void => {
+  nameList.forEach((name) => element.classList.remove(name));
 };
 
 /**
@@ -50,8 +50,8 @@ export const removeClass = (element: HTMLElement, name: string): void => {
  * @param element Element to remove a option class
  * @param name Option class name
  */
-export const removeOptionClass = (element: HTMLElement, name: string): void => {
-  removeClass(element ,`--${name}`);
+export const removeOptionClass = (element: HTMLElement, ...nameList: string[]): void => {
+  nameList.forEach((name) => removeClass(element ,`--${name}`));
 };
 
 /**
