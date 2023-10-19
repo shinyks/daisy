@@ -26,9 +26,13 @@ export class Rect {
   get left(): number { return this.x; }
 
   get centerX(): number { return this.x + this.width / 2; }
+  set centerX(value: number) { this.x = value - (this.width / 2); }
   get centerY(): number { return this.y + this.height / 2; }
+  set centerY(value: number) { this.y = value - (this.height / 2); }
   get centerPoint(): Point { return new Point(this.centerX, this.centerY); }
+  set centerPoint({ x, y }: Point) { this.centerX = x; this.centerY = y; }
   get centerIPoint(): IPoint { return { x: this.centerX, y: this.centerY }; }
+  set centerIPoint({ x, y }: IPoint) { this.centerX = x; this.centerY = y; }
 
   get object(): IRect {
     const { x, y } = this.point;
