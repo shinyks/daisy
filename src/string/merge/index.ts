@@ -1,4 +1,4 @@
-import { string } from "../..";
+import { remove } from "..";
 
 /**
  * Merge url
@@ -7,12 +7,12 @@ import { string } from "../..";
  * @returns  Url string
  */
 export const url = (base: string, ...pathList: string[]): string => {
-  let baseUrl = string.remove.trailingSlash(base);
+  let baseUrl = remove.trailingSlash(base);
 
   for (const path of pathList) {
-    const cleanPath = string.remove.beginningSlash(path);
+    const cleanPath = remove.beginningSlash(path);
 
-    baseUrl = string.remove.trailingSlash(`${baseUrl}/${cleanPath}`);
+    baseUrl = remove.trailingSlash(`${baseUrl}/${cleanPath}`);
   }
 
   return baseUrl;

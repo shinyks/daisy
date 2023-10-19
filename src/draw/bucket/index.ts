@@ -1,4 +1,5 @@
-import { Rgba, draw } from "../..";
+import { parse } from "..";
+import { Rgba } from "../..";
 
 const removeAlphaPixel = (data: Uint8ClampedArray): void => {
   for (let i = 0; i < data.length; i += 4) {
@@ -27,7 +28,7 @@ const paintPixel = (data: Uint8ClampedArray, position: number, color: Rgba): voi
 };
 
 export const floodFill = (context: CanvasRenderingContext2D, startX: number, startY: number, x: number, y: number, width: number, height: number, color: string): void => {
-  const fillColor = draw.parse.html(color);
+  const fillColor = parse.html(color);
   const dstImg = context.getImageData(x, y, width, height);
   const dstData = dstImg.data;
   const loopLimit = 2000;

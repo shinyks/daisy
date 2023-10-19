@@ -1,4 +1,5 @@
-import { is, string } from "../..";
+import { is } from "../..";
+import { to } from "..";
 
 /**
  * Parse string('width=768, height=1024') to object({ width: 768, heidht: 1024 })
@@ -21,7 +22,7 @@ export const toDictionary = (original: string, separator1: string, separator2: s
     let value: number | string = pair[1].trim();
 
     if (is.numericString(value)) {
-      value = string.to.int(value);
+      value = to.int(value);
     }
 
     resultObject[key] = value;
