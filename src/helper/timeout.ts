@@ -40,3 +40,11 @@ export class Timeout {
     this.execCallback();
   }
 }
+
+export const wait = async (durationMs: number): Promise<void> => {
+  const timeout = new Timeout();
+
+  return new Promise((resolve, reject) => {
+    timeout.start(() => resolve(), durationMs);
+  });
+};
