@@ -143,3 +143,17 @@ export const addStyle = (value: string): void => {
   setHtml(styleElement, value);
   append(styleElement, document.head);
 };
+
+/**
+ * Create HTMLImageElement asynchronously
+ * @param src Image source path
+ * @returns HTMLImageElement object
+ */
+export const createImageElement = async (src: string): Promise<HTMLImageElement> => {
+    const imageElement = new Image();
+
+    imageElement.src = src;
+    await imageElement.decode();
+
+    return imageElement;
+};
