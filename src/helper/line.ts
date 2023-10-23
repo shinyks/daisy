@@ -2,8 +2,8 @@ import { getDegree, getDistance, getPointFromDegree, getPointFromRadian, getRadi
 import { IPoint, Point } from "./point";
 
 export class Line {
-  fromValue: Point = new Point();
-  toValue: Point = new Point();
+  private fromValue: Point = new Point();
+  private toValue: Point = new Point();
 
   get from(): Point {
     return this.fromValue.clone();
@@ -49,13 +49,29 @@ export class Line {
     this.setPoint(from, to);
   }
 
-  setPoint(from: Point, to: Point): void {
+  setFromPoint(from: Point): void {
     this.fromValue.setPoint(from);
+  }
+
+  setFromIPoint(from: IPoint): void {
+    this.fromValue.setIPoint(from);
+  }
+
+  setToPoint(to: Point): void {
     this.toValue.setPoint(to);
   }
 
-  setIPoint(from: IPoint, to: IPoint): void {
-    this.fromValue.setIPoint(from);
+  setToIPoint(to: IPoint): void {
     this.toValue.setIPoint(to);
+  }
+
+  setPoint(from: Point, to: Point): void {
+    this.setFromPoint(from);
+    this.setToPoint(to);
+  }
+
+  setIPoint(from: IPoint, to: IPoint): void {
+    this.setFromIPoint(from);
+    this.setToIPoint(to);
   }
 }
