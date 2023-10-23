@@ -1,7 +1,12 @@
 import { is } from "../..";
 
+/**
+ * Convert to string
+ * @param value Object
+ * @returns Converted string
+ */
 export const string = (value: any): string => {
-  if (!is.object(value)) {
+  if (!(is.object(value) || is.array(value))) {
     return '';
   }
 

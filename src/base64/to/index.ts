@@ -4,12 +4,8 @@
  * @returns Plain string
  */
 export const plain = (value: string): string => {
-  return decodeURIComponent(
-    atob(value)
-      .split('')
-      .map(function (c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-      })
-      .join(''),
-  );
+  const binaryValue = atob(value);
+  const encodedArray = Uint8Array.from(binaryValue, (m) => m.codePointAt(0) as number);
+
+  return new TextDecoder().decode(encodedArray);
 };

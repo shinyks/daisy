@@ -49,9 +49,8 @@ export const object = (value: string): any => {
  * @returns Base64 string
  */
 export const base64 = (value: string): string => {
-  return btoa(
-    encodeURIComponent(value).replace(/%([0-9A-F]{2})/g, function toSolidBytes(match, p1) {
-      return String.fromCharCode(p1);
-    }),
-  );
+  const encodedArray = Array.from(new TextEncoder().encode(value));
+  const binaryValue = String.fromCodePoint(...encodedArray);
+
+  return btoa(binaryValue);
 };
