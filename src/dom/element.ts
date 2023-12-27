@@ -147,13 +147,38 @@ export const addStyle = (value: string): void => {
 /**
  * Create HTMLImageElement asynchronously
  * @param src Image source path
+ * @param untilDecode Image source path
  * @returns HTMLImageElement object
  */
-export const createImageElement = async (src: string): Promise<HTMLImageElement> => {
+export const createImage = async (src: string, untilDecode: boolean = false): Promise<HTMLImageElement> => {
+  return await (untilDecode ? createImageWithDecode(src) : createImageWithOnload(src));
+};
+
+/**
+ * Create HTMLImageElement asynchronously with decode method
+ * @param src Image source path
+ * @returns HTMLImageElement object
+ */
+export const createImageWithDecode = async (src: string): Promise<HTMLImageElement> => {
+  const imageElement = new Image();
+
+  imageElement.src = src;
+  await imageElement.decode();
+
+  return imageElement;
+};
+
+/**
+ * Create HTMLImageElement asynchronously with onload method
+ * @param src Image source path
+ * @returns HTMLImageElement object
+ */
+export const createImageWithOnload = async (src: string): Promise<HTMLImageElement> => {
+  return new Promise((resolve, reject) => {
     const imageElement = new Image();
 
+    imageElement.onload = (): void => resolve(imageElement);
+    imageElement.onerror = reject;
     imageElement.src = src;
-    await imageElement.decode();
-
-    return imageElement;
+  });
 };
