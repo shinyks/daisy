@@ -61,4 +61,19 @@ describe('string.to', () => {
     expect(string.to.base64('한글 테스트')).toBe('7ZWc6riAIO2FjOyKpO2KuA==');
     expect(string.to.base64('😀🎉')).toBe('8J+YgPCfjok=');
   });
+
+  test('upperCase', () => {
+    expect(string.to.upperCase('testvalue')).toBe('TESTVALUE');
+    expect(string.to.upperCase('testvalue', true)).toBe('Testvalue');
+  });
+
+  test('kebabCase', () => {
+    expect(string.to.kebabCase('TestValue')).toBe('test-value');
+    expect(string.to.kebabCase('testValue')).toBe('test-value');
+  });
+
+  test('camelCase', () => {
+    expect(string.to.camelCase('test-value')).toBe('testValue');
+    expect(string.to.camelCase('test-value', true)).toBe('TestValue');
+  });
 });

@@ -54,3 +54,25 @@ export const base64 = (value: string): string => {
 
   return btoa(binaryValue);
 };
+
+export const upperCase = (value: string, firstLetterOnly: boolean = false): string => {
+  if (firstLetterOnly) {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  } else {
+    return value.toUpperCase();
+  }
+};
+
+export const kebabCase = (value: string): string => {
+  return value.replace(/([a-z])([A-Z])/g, "$1-$2").replace(/[\s_]+/g, '-').toLowerCase();
+};
+
+export const camelCase = (value: string, isClassName: boolean = false): string => {
+  let camelCase = value.replace(/-./g, x=>x[1].toUpperCase());
+
+  if (isClassName) {
+    camelCase = upperCase(camelCase, true);
+  }
+
+  return camelCase;
+};
