@@ -52,9 +52,9 @@ export const floodFill = (context: CanvasRenderingContext2D, startX: number, sta
       break;
     }
 
-    const pos = todo.pop();
-    const x = pos![0];
-    let y = pos![1];
+    const pos = todo.pop() ?? [];
+    const x = pos[0];
+    let y = pos[1];
     let currentPos = getPosition(x, y, width);
 
     while ((y-- >= 0) && matchColor(dstData, currentPos, startColor)) {

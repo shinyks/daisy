@@ -87,11 +87,11 @@ export const html = (cstr: string): Rgba => {
       parts = parts.slice(0, size);
     }
     else if (cstr.length > 10 && /[0-9](?:\s|\/)/.test(cstr)) { // named channels case
-      parts = cstr.match(/([0-9]+)/g)!.map((value) => {
+      parts = cstr.match(/([0-9]+)/g)?.map((value) => {
         return parseFloat(value);
-      });
+      }) ?? [];
 
-      space = cstr.match(/([a-z])/ig)!.join('').toLowerCase();
+      space = cstr.match(/([a-z])/ig)?.join('').toLowerCase() ?? '';
     }
   }
 
