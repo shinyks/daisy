@@ -10,7 +10,7 @@ const numToPx = number.to.pxString;
  * @param value Style value string
  */
 export const setCss = ({ style }: HTMLElement, key: string, value: string): void => {
-  (style as any)[key] = value;
+  style.setProperty(key, value);
 };
 
 /**
