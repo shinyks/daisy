@@ -1,5 +1,7 @@
 import { Point, degree, radian } from "..";
 
+export * from './easing';
+
 /**
  * Get distance between two points
  * @param from Start point
