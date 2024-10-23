@@ -61,43 +61,35 @@ export class Rect {
   }
 
   getPoint(): Point {
-    return this.point.clone();
+    return this.point;
   }
 
-  setPoint({ x, y }: Point): void {
-    this.x = x;
-    this.y = y;
+  setPoint(point: Point): void {
+    this.point.setPoint(point);
   }
 
   getIPoint(): IPoint {
-    const { x, y } = this.point;
-
-    return { x, y };
+    return this.point.object;
   }
 
-  setIPoint({ x, y }: IPoint): void {
-    this.x = x;
-    this.y = y;
+  setIPoint(iPoint: IPoint): void {
+    this.point.setIPoint(iPoint);
   }
 
   getSize(): Size {
-    return this.size.clone();
+    return this.size;
   }
 
-  setSize({ width, height }: Size): void {
-    this.width = width;
-    this.height = height;
+  setSize(size: Size): void {
+    this.size.setSize(size);
   }
 
   getISize(): ISize {
-    const { width, height } = this.size;
-
-    return { width, height };
+    return this.size.object;
   }
 
-  setISize({ width, height }: ISize): void {
-    this.width = width;
-    this.height = height;
+  setISize(iSize: ISize): void {
+    this.size.setISize(iSize);
   }
 
   clone(): Rect {
