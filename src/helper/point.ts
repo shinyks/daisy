@@ -44,6 +44,26 @@ export class Point {
     }
   }
 
+  add(value: number): void {
+    this.x += value;
+    this.y += value;
+  }
+
+  sub(value: number): void {
+    this.x -= value;
+    this.y -= value;
+  }
+
+  mul(value: number): void {
+    this.x *= value;
+    this.y *= value;
+  }
+
+  div(value: number): void {
+    this.x /= value;
+    this.y /= value;
+  }
+
   setPoint({ x, y }: Point): void {
     this.x = x;
     this.y = y;

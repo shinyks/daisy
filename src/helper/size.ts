@@ -44,6 +44,26 @@ export class Size {
     }
   }
 
+  add(value: number): void {
+    this.width += value;
+    this.height += value;
+  }
+
+  sub(value: number): void {
+    this.width -= value;
+    this.height -= value;
+  }
+
+  mul(value: number): void {
+    this.width *= value;
+    this.height *= value;
+  }
+
+  div(value: number): void {
+    this.width /= value;
+    this.height /= value;
+  }
+
   setSize({ width, height }: Size): void {
     this.width = width;
     this.height = height;
