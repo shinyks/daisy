@@ -2,9 +2,9 @@
  * easing function: https://spicyyoghurt.com/tools/easing-functions
  * easing graph: https://easings.net/
  * t: current time
- * b: beginning value
- * c: change in value (상대적 변화량)
- * d: duration
+ * b: beginning value (static value)
+ * c: change in value (static value, from starting point to end point)
+ * d: duration (static value)
  */
 
 export type Easing = (t: number, b: number, c: number, d: number) => number;
