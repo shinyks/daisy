@@ -1,6 +1,6 @@
-import { Rgba } from "../..";
+import { Rgba } from "..";
 
-export const html = (cstr: string): Rgba => {
+export const htmlToRgba = (cstr: string): Rgba => {
   const match = /^((?:rgb|hs[lvb]|hwb|cmyk?|xy[zy]|gray|lab|lchu?v?|[ly]uv|lms)a?)\s*\(([^)]*)\)/.exec(cstr);
   const baseHues: any = {
     red: 0,

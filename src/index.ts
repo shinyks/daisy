@@ -12,6 +12,7 @@ export * as radian from './radian';
 export * as string from './string';
 
 export * as calc from './calc';
+export * as color from './color';
 export * as draw from './draw';
 export * as dom from './dom';
 export * as request from './request';
