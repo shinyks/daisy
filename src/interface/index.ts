@@ -4,3 +4,9 @@ export interface Rgba {
   b: number;
   a: number;
 }
+
+export interface Hsv {
+  hue: number;
+  saturation: number;
+  value: number;
+}
