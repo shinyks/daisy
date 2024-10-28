@@ -182,3 +182,9 @@ export const createImageWithOnload = async (src: string): Promise<HTMLImageEleme
     imageElement.src = src;
   });
 };
+
+export const createAudioBuffer = async (src: string): Promise<AudioBuffer> => {
+  return fetch(src)
+    .then(res => res.arrayBuffer())
+    .then(arrayBuffer => (new AudioContext()).decodeAudioData(arrayBuffer));
+};
