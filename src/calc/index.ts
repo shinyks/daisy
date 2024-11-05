@@ -63,3 +63,15 @@ export const getDegree = (from: Point, to: Point): number => {
 
   return radian.to.degree(radianValue);
 };
+
+/**
+ * Get the rounded value
+ * @param value A number
+ * @param digits The number of digits to appear after the decimal point
+ * @returns The value of x rounded to the nearest integer
+ */
+export const round = (value: number, digits: number = 0): number => {
+  const precision = 10 ** digits;
+
+  return Math.round(value * precision) / precision;
+};
