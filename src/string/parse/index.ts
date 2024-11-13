@@ -53,3 +53,15 @@ export const jwt = (token: string): any => {
     return null;
   }
 };
+
+
+/**
+ * Get file name from path
+ * @param value Original path
+ * @returns File name
+ */
+export const fileName = (value: string): string => {
+  const chunks = value.split('/');
+
+  return chunks.pop() ?? '';
+};
