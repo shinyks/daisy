@@ -33,10 +33,11 @@ export const getById = (elementId: string, parentElement?: HTMLElement): HTMLEle
  * @param tag The tag of the element
  * @param className The class name of the element
  * @param id The id of the element
+ * @param namespace The namespace of the element
  * @returns New element
  */
-export const create = (tag: string = 'div', className: string = '', id: string = ''): HTMLElement => {
-  const element = document.createElement(tag);
+export const create = (tag: string = 'div', className: string = '', id: string = '', namespace: string = ''): HTMLElement => {
+  const element = namespace === '' ? document.createElement(tag) : document.createElementNS(namespace, tag) as HTMLElement;
 
   if (id.length !== 0) {
     element.id = id;
